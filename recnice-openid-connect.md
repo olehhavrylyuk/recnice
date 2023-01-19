@@ -1,22 +1,22 @@
 ---
-title: 'Tutorial: Configure Templafy OpenID Connect for automatic user provisioning with Azure Active Directory | Microsoft Docs'
-description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Templafy OpenID Connect.
+title: 'Tutorial: Configure Recnice for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Recnice.
 services: active-directory
-author: twimmers
-writer: twimmers
-manager: CelesteDG
-ms.assetid: 8cbb387a-e3fb-4588-bb87-bf4f88144361
+author: olehhavrylyuk
+writer: olehhavrylyuk
+manager: olehhavrylyuk
+ms.assetid: 7174855a-406e-47ac-b828-5558773b570f
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
-ms.author: thwimmer
+ms.date: 01/18/2023
+ms.author: olehhavrylyuk
 ---
 
-# Tutorial: Configure Templafy OpenID Connect for automatic user provisioning
+# Tutorial: Configure Recnice for automatic user provisioning
 
-The objective of this tutorial is to demonstrate the steps to be performed in Templafy OpenID Connect and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Templafy OpenID Connect.
+The objective of this tutorial is to demonstrate the steps to be performed in Recnice and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Recnice.
 
 > [!NOTE]
 > This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
@@ -28,48 +28,48 @@ The objective of this tutorial is to demonstrate the steps to be performed in Te
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * An Azure AD tenant.
-* [A Templafy tenant](https://www.templafy.com/pricing/).
-* A user account in Templafy with Admin permissions.
+* [A Recnice tenant](https://www.recnice.com/pricing/).
+* A user account in Recnice with Admin permissions.
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
 2. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-3. Determine what data to [map between Azure AD and Templafy OpenID Connect](../app-provisioning/customize-application-attributes.md). 
+3. Determine what data to [map between Azure AD and Recnice](../app-provisioning/customize-application-attributes.md). 
 
-## Assigning users to Templafy OpenID Connect
+## Assigning users to Recnice
 
 Azure Active Directory uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been assigned to an application in Azure AD are synchronized.
 
-Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Templafy OpenID Connect. Once decided, you can assign these users and/or groups to Templafy OpenID Connect by following the instructions here:
+Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Recnice. Once decided, you can assign these users and/or groups to Recnice by following the instructions here:
 * [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
 
-## Important tips for assigning users to Templafy OpenID Connect
+## Important tips for assigning users to Recnice
 
-* It is recommended that a single Azure AD user is assigned to Templafy OpenID Connect to test the automatic user provisioning configuration. More users and/or groups may be assigned later.
+* It is recommended that a single Azure AD user is assigned to Recnice to test the automatic user provisioning configuration. More users and/or groups may be assigned later.
 
-* When assigning a user to Templafy OpenID Connect, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
+* When assigning a user to Recnice, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
-## Step 2. Configure Templafy OpenID Connect to support provisioning with Azure AD
+## Step 2. Configure Recnice to support provisioning with Azure AD
 
-Before configuring Templafy OpenID Connect for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Templafy OpenID Connect.
+Before configuring Recnice for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Recnice.
 
-1. Sign in to your Templafy Admin Console. Click on **Administration**.
+1. Sign in to your Recnice Admin Console. Click on **Settings**.
 
-	![Templafy Admin Console](media/templafy-openid-connect-provisioning-tutorial/templafy-admin.png)
+	![Recnice Admin Console](media/recnice-provisioning-tutorial/recnice-settings.png)
 
-2. Click on **Authentication Method**.
+2. Click on **Company Profile**.
 
-	![Screenshot of the Templafy administration section with the Authentication method option called out.](media/templafy-openid-connect-provisioning-tutorial/templafy-auth.png)
+	![Screenshot of the Recnice administration section with the Authentication method option called out.](media/recnice-provisioning-tutorial/recnice-company-profile.png)
 
-3. Copy the **SCIM Api-key** value. This value will be entered in the **Secret Token** field in the Provisioning tab of your Templafy OpenID Connect application in the Azure portal.
+3. Copy the **SCIM Key** value. This value will be entered in the **Secret Token** field in the Provisioning tab of your Recnice application in the Azure portal.
 
-	![A screenshot of the S C I M A P I key.](media/templafy-openid-connect-provisioning-tutorial/templafy-token.png)
+	![A screenshot of the S C I M A P I key.](media/recnice-provisioning-tutorial/recnice-token.png)
 
-## Step 3. Add Templafy OpenID Connect from the gallery
+## Step 3. Add Recnice from the gallery
 
-To configure Templafy OpenID Connect for automatic user provisioning with Azure AD, you need to add Templafy OpenID Connect from the Azure AD application gallery to your list of managed SaaS applications.
+To configure Recnice for automatic user provisioning with Azure AD, you need to add Recnice from the Azure AD application gallery to your list of managed SaaS applications.
 
-**To add Templafy OpenID Connect from the Azure AD application gallery, perform the following steps:**
+**To add Recnice from the Azure AD application gallery, perform the following steps:**
 
 1. In the **[Azure portal](https://portal.azure.com)**, in the left navigation panel, select **Azure Active Directory**.
 
@@ -83,26 +83,23 @@ To configure Templafy OpenID Connect for automatic user provisioning with Azure 
 
 	![The New application button](common/add-new-app.png)
 
-4. In the search box, enter **Templafy OpenID Connect**, select **Templafy OpenID Connect** in the results panel, and then click the **Add** button to add the application.
+4. In the search box, enter **Recnice**, select **Recnice** in the results panel, and then click the **Add** button to add the application.
 
-	![Templafy OpenID Connect in the results list](common/search-new-app.png)
+	![Recnice in the results list](common/search-new-app.png)
 
-## Step 4. Configure automatic user provisioning to Templafy OpenID Connect 
+## Step 4. Configure automatic user provisioning to Recnice 
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Templafy OpenID Connect based on user and/or group assignments in Azure AD.
+This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Recnice based on user and/or group assignments in Azure AD.
 
-> [!TIP]
-> You may also choose to enable OpenID connect-based single sign-on for Templafy, following the instructions provided in the [Templafy Single sign-on tutorial](templafy-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
-
-### To configure automatic user provisioning for Templafy OpenID Connect in Azure AD:
+### To configure automatic user provisioning for Recnice in Azure AD:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Templafy OpenID Connect**.
+2. In the applications list, select **Recnice**.
 
-	![The Templafy OpenID Connect link in the Applications list](common/all-applications.png)
+	![The Recnice link in the Applications list](common/all-applications.png)
 
 3. Select the **Provisioning** tab.
 
@@ -112,7 +109,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input `https://scim.templafy.com/scim` in **Tenant URL**. Input the **SCIM API-key** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Templafy. If the connection fails, ensure your Templafy account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, input `https://scim.recnice.com/scim` in **Tenant URL**. Input the **SCIM Key** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Recnice. If the connection fails, ensure your Recnice account has Admin permissions and try again.
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -122,38 +119,38 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 7. Click **Save**.
 
-8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Templafy OpenID Connect**.
+8. Under the **Mappings** section, select **Provision Azure Active Directory Users**.
 
-	![Templafy OpenID Connect User Mappings](media/templafy-openid-connect-provisioning-tutorial/user-mapping.png)
+	![Recnice User Mappings](media/recnice-provisioning-tutorial/user-mapping.png)
 
-9. Review the user attributes that are synchronized from Azure AD to Templafy OpenID Connect in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Templafy OpenID Connect for update operations. Select the **Save** button to commit any changes.
+9. Review the user attributes that are synchronized from Azure AD to Recnice in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Recnice for update operations. Select the **Save** button to commit any changes.
 
-   |Attribute|Type|Supported for filtering|
+   |Attribute|Type|Supported for filtering
    |---|---|---|
    |userName|String|&check;|
    |active|Boolean|
    |displayName|String|
    |title|String|
+   |emails[type eq "work"].value|String|
    |preferredLanguage|String|
    |name.givenName|String|
    |name.familyName|String|
-   |phoneNumbers[type eq "work"].value|String|
-   |phoneNumbers[type eq "mobile"].value|String|
-   |phoneNumbers[type eq "fax"].value|String|
-   |externalId|String|
-   |addresses[type eq "work"].locality|String|
-   |addresses[type eq "work"].postalCode|String|
-   |addresses[type eq "work"].region|String|
+   |name.formatted|String|
+   |addresses[type eq "work"].formatted|String|
    |addresses[type eq "work"].streetAddress|String|
+   |addresses[type eq "work"].locality|String|
+   |addresses[type eq "work"].region|String|
+   |addresses[type eq "work"].postalCode|String|
    |addresses[type eq "work"].country|String|
+   |externalId|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
+   |roles|Expression|
 
-10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Templafy**.
+10. Under the **Mappings** section, select **Provision Azure Active Directory Groups**.
 
-	![Templafy OpenID Connect Group Mappings](media/templafy-openid-connect-provisioning-tutorial/group-mapping.png)
+	![Recnice Group Mappings](media/recnice-provisioning-tutorial/group-mapping.png)
 
-11. Review the group attributes that are synchronized from Azure AD to Templafy OpenID Connect in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Templafy OpenID Connect for update operations. Select the **Save** button to commit any changes.
+11. Review the group attributes that are synchronized from Azure AD to Recnice in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Recnice for update operations. Select the **Save** button to commit any changes.
 
       |Attribute|Type|Supported for filtering|
       |---|---|---|
@@ -163,11 +160,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. To enable the Azure AD provisioning service for Templafy OpenID Connect, change the **Provisioning Status** to **On** in the **Settings** section.
+13. To enable the Azure AD provisioning service for Recnice, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-14. Define the users and/or groups that you would like to provision to Templafy OpenID Connect by choosing the desired values in **Scope** in the **Settings** section.
+14. Define the users and/or groups that you would like to provision to Recnice by choosing the desired values in **Scope** in the **Settings** section.
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
@@ -175,7 +172,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
-	This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Templafy OpenID Connect.
+	This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Recnice.
 
 ## Step 5. Monitor your deployment
 Once you've configured provisioning, use the following resources to monitor your deployment:
