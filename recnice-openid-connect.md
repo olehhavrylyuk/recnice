@@ -158,9 +158,13 @@ This section guides you through the steps to configure the Azure AD provisioning
    > Use the AppRoleAssignmentsComplex expression to provision ***roles*** attribute:
    > * Select the **Show advanced options** check box at the bottom of the Attribute Mapping screen, and then select **Edit attribute list for your app**.
    > * Add *roles* attribute and click **Save**.
-	![Recnice Mapping Roles Attribute](media/recnice-provisioning-tutorial/user-mapping-roles-attribute.png)
+   >
+   >   ![Recnice Creating Roles Attribute](media/recnice-provisioning-tutorial/user-mapping-roles-attribute.png)
+   >
    > * Then use the *AppRoleAssignmentsComplex([appRoleAssignments])* expression to map to the custom *roles* attribute as shown in the image below.
-    ![Recnice Mapping Roles](media/recnice-provisioning-tutorial/user-mapping-roles-mapping.png)
+   >
+   >   ![Recnice Mapping Roles Attribute](media/recnice-provisioning-tutorial/user-mapping-roles-mapping.png)
+   
    
 10. Under the **Mappings** section, select **Provision Azure Active Directory Groups**.
 
