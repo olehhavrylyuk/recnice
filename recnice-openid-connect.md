@@ -47,7 +47,15 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 * It is recommended that a single Azure AD user is assigned to Recnice to test the automatic user provisioning configuration. More users and/or groups may be assigned later.
 
-* When assigning a user to Recnice, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
+* When assigning a user or a group to Recnice, you must select any valid application-specific role in the assignment dialog.
+
+|Role name|Description
+|---|---|
+|Recognition User|Common user|
+|Recognition Company Admin|Company Admin|
+|Recognition Company CoAdmin|Company Admin with read-only access|
+
+* Users with the **Default Access** role are excluded from provisioning.
 
 ## Step 2. Configure Recnice to support provisioning with Azure AD
 
@@ -146,6 +154,14 @@ This section guides you through the steps to configure the Azure AD provisioning
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
    |roles|Expression|
 
+   > [!NOTE]
+   > Use the AppRoleAssignmentsComplex expression to provision ***roles*** attribute:
+   > * Select the **Show advanced options** check box at the bottom of the Attribute Mapping screen, and then select **Edit attribute list for your app**.
+   > * Add *roles* attribute and click **Save**.
+	![Recnice Mapping Roles Attribute](media/recnice-provisioning-tutorial/user-mapping-roles-attribute.png)
+   > * Then use the *AppRoleAssignmentsComplex([appRoleAssignments])* expression to map to the custom *roles* attribute as shown in the image below.
+    ![Recnice Mapping Roles](media/recnice-provisioning-tutorial/user-mapping-roles-mapping.png)
+   
 10. Under the **Mappings** section, select **Provision Azure Active Directory Groups**.
 
 	![Recnice Group Mappings](media/recnice-provisioning-tutorial/group-mapping.png)
