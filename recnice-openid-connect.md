@@ -133,26 +133,26 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 9. Review the user attributes that are synchronized from Azure AD to Recnice in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Recnice for update operations. Select the **Save** button to commit any changes.
 
-   |Attribute|Type|Supported for filtering
-   |---|---|---|
-   |userName|String|&check;|
-   |active|Boolean|
-   |displayName|String|
-   |title|String|
-   |emails[type eq "work"].value|String|
-   |preferredLanguage|String|
-   |name.givenName|String|
-   |name.familyName|String|
-   |name.formatted|String|
-   |addresses[type eq "work"].formatted|String|
-   |addresses[type eq "work"].streetAddress|String|
-   |addresses[type eq "work"].locality|String|
-   |addresses[type eq "work"].region|String|
-   |addresses[type eq "work"].postalCode|String|
-   |addresses[type eq "work"].country|String|
-   |externalId|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
-   |roles|Expression|
+   |AAD Attribute|Attribute|Type|Supported for filtering
+   |---|---|---|---|
+   |userPrincipalName|userName|String|&check;|
+   |Switch([IsSoftDeleted], , "False", "True", "True", "False")|active|Boolean|
+   |displayName|displayName|String|
+   |jobTitle|title|String|
+   |mail|emails[type eq "work"].value|String|
+   |preferredLanguage|preferredLanguage|String|
+   |givenName|name.givenName|String|
+   |surname|name.familyName|String|
+   |Join(" ", [givenName], [surname])|name.formatted|String|
+   |physicalDeliveryOfficeName|addresses[type eq "work"].formatted|String|
+   |streetAddress|addresses[type eq "work"].streetAddress|String|
+   |city|addresses[type eq "work"].locality|String|
+   |state|addresses[type eq "work"].region|String|
+   |postalCode|addresses[type eq "work"].postalCode|String|
+   |country|addresses[type eq "work"].country|String|
+   |objectId|externalId|String|
+   |department|urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |AppRoleAssignmentsComplex([appRoleAssignments])|roles|Expression|
 
    > [!NOTE]
    > Use the AppRoleAssignmentsComplex expression to provision ***roles*** attribute:
@@ -164,19 +164,18 @@ This section guides you through the steps to configure the Azure AD provisioning
    > * Then use the *AppRoleAssignmentsComplex([appRoleAssignments])* expression to map to the custom *roles* attribute as shown in the image below.
    >
    >   ![Recnice Mapping Roles Attribute](media/recnice-provisioning-tutorial/user-mapping-roles-mapping.png)
-   
-   
+      
 10. Under the **Mappings** section, select **Provision Azure Active Directory Groups**.
 
 	![Recnice Group Mappings](media/recnice-provisioning-tutorial/group-mapping.png)
 
 11. Review the group attributes that are synchronized from Azure AD to Recnice in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Recnice for update operations. Select the **Save** button to commit any changes.
 
-      |Attribute|Type|Supported for filtering|
-      |---|---|---|
-      |displayName|String|&check;|
-      |members|Reference|
-      |externalId|String|      
+      |AAD Attribute|Attribute|Type|Supported for filtering|
+      |---|---|---|---|
+      |displayName|displayName|String|&check;|
+	  |objectId|externalId|String|
+      |members|members|Reference|      
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
