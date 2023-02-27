@@ -61,15 +61,11 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 Before configuring Recnice for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Recnice.
 
-1. Sign in to your Recnice Admin Console. Click on **Settings**.
+1. Sign in to your Recnice Admin Console. Click on **Account**.
 
-	![Recnice Admin Console](media/recnice-provisioning-tutorial/recnice-settings.png)
+	![Recnice Admin Console](media/recnice-provisioning-tutorial/recnice-account-settings.png)
 
-2. Click on **Company Profile**.
-
-	![Screenshot of the Recnice administration section with the Authentication method option called out.](media/recnice-provisioning-tutorial/recnice-company-profile.png)
-
-3. Copy the **SCIM Key** value. This value will be entered in the **Secret Token** field in the Provisioning tab of your Recnice application in the Azure portal.
+2. Copy the **SCIM Key** value. This value will be entered in the **Secret Token** field in the Provisioning tab of your Recnice application in the Azure portal.
 
 	![A screenshot of the S C I M A P I key.](media/recnice-provisioning-tutorial/recnice-token.png)
 
